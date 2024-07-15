@@ -1,0 +1,36 @@
+.cocktail-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .cocktail-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .cocktail-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .cocktail-card .content {
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .cocktail-card h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .cocktail-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
