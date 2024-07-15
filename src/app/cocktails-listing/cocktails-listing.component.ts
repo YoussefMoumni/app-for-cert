@@ -16,12 +16,17 @@ export class CocktailsListingComponent {
   cocktails: Cocktail[] = [];
   filteredCocktails: Cocktail[] = [];
   filter: string = '';
+  favorites: { id: string, isFavorite: boolean }[];
 
   constructor(private cocktailsListingService: CocktailsListingService) { }
 
   ngOnInit(): void {
     this.cocktailsListingService.getCocktails().subscribe({
-      next: (data) => { this.cocktails = data; this.filteredCocktails = data; },
+      next: (data) => { this.cocktails = data; this.filteredCocktails = data;
+        this.filteredCocktails.forEach(cocktail => {
+          cocktail.isFavorite = this.isFavorite(cocktail.id);
+        });
+       },
       error: (error) => console.error('Error!', error)
     });
   }
@@ -39,4 +44,30 @@ export class CocktailsListingComponent {
   trackByFn(index: number, item: Cocktail): any {
     return item.id;
   }
+
+
+  loadFavorites(): void {
+    this.cocktails.forEach(cocktail => {
+      cocktail.isFavorite = this.isFavorite(cocktail.id);
+    });
+  }
+
+  toggleFavorite(cocktailId: string): void {
+    const favorites = new Set(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    if (favorites.has(cocktailId)) {
+      favorites.delete(cocktailId);
+    } else {
+      favorites.add(cocktailId);
+    }
+    localStorage.setItem('favorites', JSON.stringify(Array.from(favorites)));
+    this.loadFavorites();
+    console.log('favorites', favorites);
+    console.log('cocktails', this.cocktails);
+  }
+
+  isFavorite(cocktailId: string): boolean {
+    const favorites = new Set(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    return favorites.has(cocktailId);
+  }
+
 }
