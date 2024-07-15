@@ -5,7 +5,7 @@ import { setupWorker } from 'msw/browser';
 import { http, HttpResponse } from 'msw';
 
 const handlers = [
-  http.get('/cockails', ({ request, params, cookies }) => {
+  http.get('/cocktails', ({ request, params, cookies }) => {
     return HttpResponse.json([
       {
         "id": "12560",
