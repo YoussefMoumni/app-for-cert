@@ -5,4 +5,5 @@ export type Cocktail = {
     imageUrl: string;
     instructions: string;
     ingredients: string[];
+    isFavorite?: boolean;
   }
