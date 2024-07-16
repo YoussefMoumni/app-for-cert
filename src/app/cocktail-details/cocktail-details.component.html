@@ -1,0 +1,49 @@
+<div class="cocktail-details-container">
+  <div class="cocktail-details-card">
+    <div class="header"></div>
+    <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}" />
+    <div class="content">
+      <table>
+        <tr>
+          <td>
+            <h3>{{ cocktail.name }}</h3>
+          </td>
+          <td>
+            <span class="icon-star" [class.active]="cocktail.isFavorite"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Type:</h5>
+          </td>
+          <td>
+            <span
+              [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'"
+              >{{ cocktail.isAlcoholic ? "Alcoholic" : "Non-alcoholic" }}</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Ingredients:</h5>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let ingredient of cocktail.ingredients">
+                {{ ingredient }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Instructions:</h5>
+          </td>
+          <td>
+            <p>{{ cocktail.instructions }}</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
