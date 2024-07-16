@@ -27,6 +27,19 @@ export class CocktailDetailsComponent {
         this.cocktailsListingService.getCocktail(cocktailId).subscribe({
           next: (data) => {
             this.cocktail = data;
+
+            let favorites = localStorage.getItem('favorites');
+            if (favorites) {
+              favorites = JSON.parse(favorites);
+              if (favorites && favorites.includes(this.cocktail.id)) {
+                this.cocktail.isFavorite = true;
+              } else {
+                this.cocktail.isFavorite = false;
+              }
+            }
+
+            console.log(this.cocktail);
+            console.log(favorites);
           },
           error: (error) => console.error('Error!', error)
         });

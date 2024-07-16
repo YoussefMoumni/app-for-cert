@@ -1,7 +1,10 @@
 <div class="cocktail-details-container">
   <div class="cocktail-details-card">
-    <div class="header"></div>
-    <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}" />
+    <div class="header">
+      <button class="back-button" (click)="goBack()"> Back
+      </button>
+    </div>
+    <img [src]="cocktail.imageUrl" />
     <div class="content">
       <table>
         <tr>
@@ -17,10 +20,8 @@
             <h5>Type:</h5>
           </td>
           <td>
-            <span
-              [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'"
-              >{{ cocktail.isAlcoholic ? "Alcoholic" : "Non-alcoholic" }}</span
-            >
+            <span [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'">{{ cocktail.isAlcoholic ? "Alcoholic"
+              : "Non-alcoholic" }}</span>
           </td>
         </tr>
         <tr>
