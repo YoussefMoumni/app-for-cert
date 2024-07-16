@@ -639,7 +639,7 @@ const handlers = [
       }
     ]);
   }),
-  http.get('/cockails/:id', ({ params }) => {
+  http.get('/cocktails/:id', ({ params }) => {
     const options = {
       "11014": {
         "id": "11014",

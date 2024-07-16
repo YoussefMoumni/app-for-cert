@@ -10,9 +10,13 @@ import { Cocktail } from '../types/cocktail.types';
 export class CocktailsListingService {
   private apiUrl = '/cocktails';
 
-  constructor(private http: HttpClient) { } 
+  constructor(private http: HttpClient) { }
 
   getCocktails(): Observable<Cocktail[]> {
     return this.http.get<Cocktail[]>(this.apiUrl);
+  }
+
+  getCocktail(cocktailId: string): Observable<Cocktail> {
+    return this.http.get<Cocktail>(`${this.apiUrl}/${cocktailId}`);
   }
 }
