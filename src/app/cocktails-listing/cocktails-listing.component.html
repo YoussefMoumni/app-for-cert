@@ -6,9 +6,10 @@
     <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
     <div class="content">
       <h3>{{ cocktail.name }}</h3>
-      <p>{{ cocktail.isAlcoholic ? 'Alcoholic' : 'Non-alcoholic' }}</p>
+      <span [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'">{{ cocktail.isAlcoholic ? 'Alcoholic' :
+        'Non-alcoholic' }}</span>
       <p>{{ cocktail.ingredients.join(' | ') }}</p>
-      <span class="icon-star" (click)="toggleFavorite(cocktail.id)" [class.active]="cocktail.isFavorite"></span> 
+      <span class="icon-star" (click)="toggleFavorite(cocktail.id)" [class.active]="cocktail.isFavorite"></span>
     </div>
   </div>
 </div>
