@@ -1,48 +1,36 @@
 .cocktail-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .cocktail-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  .cocktail-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .cocktail-card .content {
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .cocktail-card h3 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  .cocktail-card p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .custom-star-icon {
-    stroke: black;
-    stroke-width: 1;
-  }
-  
-  .filled-yellow {
-    fill: yellow;
-  }
-  
-  .filled-white {
-    fill: white;
-  }
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.cocktail-card {
+  width: 400px;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.cocktail-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.cocktail-card .content {
+  width: 250px;
+  height: inherit;
+  position: relative;
+}
+
+.cocktail-card .icon-star {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 32px;
+  width: 32px;
+}
