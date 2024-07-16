@@ -3,7 +3,7 @@
     <input type="text" [(ngModel)]="filter" placeholder="Search cocktails by name" (input)="filterCocktails()">
   </div>
   <div class="cocktail-list">
-    <div *ngFor="let cocktail of filteredCocktails; let i = index" class="cocktail-card">
+    <div *ngFor="let cocktail of filteredCocktails; let i = index" class="cocktail-card" (click)="navigateToCocktailDetails(cocktail.id)">
       <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
       <div class="content">
         <h3>{{ cocktail.name }}</h3>

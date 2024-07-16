@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cocktail } from '../types/cocktail.types';
 import { CocktailsListingService } from '../services/cocktails-listing.service';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,11 @@ import { CommonModule } from '@angular/common';
 export class CocktailDetailsComponent {
   cocktail: Cocktail;
 
-  constructor(private route: ActivatedRoute, private cocktailsListingService: CocktailsListingService) { }
+  constructor(private route: ActivatedRoute, private cocktailsListingService: CocktailsListingService, private router: Router) { }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

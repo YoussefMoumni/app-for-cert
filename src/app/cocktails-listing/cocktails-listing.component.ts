@@ -4,6 +4,7 @@ import { Cocktail } from '../types/cocktail.types';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cocktails-listing',
@@ -18,15 +19,19 @@ export class CocktailsListingComponent {
   filter: string = '';
   favorites: { id: string, isFavorite: boolean }[];
 
-  constructor(private cocktailsListingService: CocktailsListingService) { }
+  constructor(
+    private cocktailsListingService: CocktailsListingService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.cocktailsListingService.getCocktails().subscribe({
-      next: (data) => { this.cocktails = data; this.filteredCocktails = data;
+      next: (data) => {
+        this.cocktails = data; this.filteredCocktails = data;
         this.filteredCocktails.forEach(cocktail => {
           cocktail.isFavorite = this.isFavorite(cocktail.id);
         });
-       },
+      },
       error: (error) => console.error('Error!', error)
     });
   }
@@ -68,6 +73,9 @@ export class CocktailsListingComponent {
   isFavorite(cocktailId: string): boolean {
     const favorites = new Set(JSON.parse(localStorage.getItem('favorites') || '[]'));
     return favorites.has(cocktailId);
+  }
+  navigateToCocktailDetails(cocktailId: string) {
+    this.router.navigate(['/cocktails', cocktailId]);
   }
 
 }
