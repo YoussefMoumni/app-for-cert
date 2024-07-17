@@ -45,7 +45,7 @@ export class CocktailsListingComponent {
     }
   }
 
-  trackByFn(index: number, item: Cocktail): any {
+  trackByFn(index: number, item: Cocktail): string {
     return item.id;
   }
 
