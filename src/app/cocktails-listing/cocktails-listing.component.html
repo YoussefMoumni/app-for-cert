@@ -3,14 +3,18 @@
     <input type="text" [(ngModel)]="filter" placeholder="Search cocktails by name" (input)="filterCocktails()">
   </div>
   <div class="cocktail-list">
-    <div *ngFor="let cocktail of filteredCocktails; let i = index" class="cocktail-card" (click)="navigateToCocktailDetails(cocktail.id)">
-      <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
-      <div class="content">
-        <h3>{{ cocktail.name }}</h3>
-        <span [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'">{{ cocktail.isAlcoholic ? 'Alcoholic' :
-          'Non-alcoholic' }}</span>
-        <p>{{ cocktail.ingredients.join(' | ') }}</p>
-        <span class="icon-star" (click)="toggleFavorite(cocktail.id)" [class.active]="cocktail.isFavorite"></span>
+    <div *ngFor="let cocktail of filteredCocktails; let i = index">
+      <div class="cocktail-card">
+        <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
+        <div class="content">
+          <h3 class="title" (click)="navigateToCocktailDetails(cocktail.id)">{{ cocktail.name }}</h3>
+          <span [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'">{{ cocktail.isAlcoholic ? 'Alcoholic' :
+            'Non-alcoholic' }}</span>
+          <p>{{ cocktail.ingredients.join(' | ') }}</p>
+        </div>
+        <div class="favorite">
+          <span class="icon-star" (click)="toggleFavorite(cocktail.id)" [class.active]="cocktail.isFavorite"></span>
+        </div>
       </div>
     </div>
   </div>
