@@ -1,6 +1,8 @@
 <div class="cocktail-listing-container">
-  <div>
-    <input type="text" [(ngModel)]="filter" placeholder="Search cocktails by name" (input)="filterCocktails()">
+  <div class="filters">
+    <h3>Filters</h3>
+    <label for="cocktailName">Cocktail name </label>
+    <input type="text" id="cocktailName" [(ngModel)]="filter" (input)="filterCocktails()">
   </div>
   <div class="cocktail-list">
     <div *ngFor="let cocktail of filteredCocktails; let i = index">
