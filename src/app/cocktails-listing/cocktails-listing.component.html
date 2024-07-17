@@ -12,7 +12,7 @@
           <h3 class="title" (click)="navigateToCocktailDetails(cocktail.id)">{{ cocktail.name }}</h3>
           <span [ngClass]="cocktail.isAlcoholic ? 'alcoholic' : 'non-alcoholic'">{{ cocktail.isAlcoholic ? 'Alcoholic' :
             'Non-alcoholic' }}</span>
-          <p>{{ cocktail.ingredients.join(' | ') }}</p>
+          <p class="ingredients">{{ cocktail.ingredients.join(' | ') }}</p>
         </div>
         <div class="favorite">
           <span class="icon-star" (click)="toggleFavorite(cocktail.id)" [class.active]="cocktail.isFavorite"></span>

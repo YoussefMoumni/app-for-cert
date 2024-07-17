@@ -45,11 +45,6 @@ export class CocktailsListingComponent {
     }
   }
 
-  trackByFn(index: number, item: Cocktail): string {
-    return item.id;
-  }
-
-
   loadFavorites(): void {
     this.cocktails.forEach(cocktail => {
       cocktail.isFavorite = this.isFavorite(cocktail.id);
