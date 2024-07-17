@@ -12,7 +12,7 @@
             <h3>{{ cocktail.name }}</h3>
           </td>
           <td>
-            <span class="icon-star" [class.active]="cocktail.isFavorite"></span>
+            <span class="icon-star" [class.active]="cocktail.isFavorite" (click)="toggleFavorite()"></span>
           </td>
         </tr>
         <tr>

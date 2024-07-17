@@ -46,4 +46,14 @@ export class CocktailDetailsComponent {
       }
     });
   }
+  toggleFavorite() {
+    this.cocktail.isFavorite = !this.cocktail.isFavorite;
+    const favorites = new Set(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    if (this.cocktail.isFavorite) {
+      favorites.add(this.cocktail.id);
+    } else {
+      favorites.delete(this.cocktail.id);
+    }
+    localStorage.setItem('favorites', JSON.stringify(Array.from(favorites)));
+  }
 }
