@@ -3,13 +3,12 @@ import { CocktailsListingService } from '../services/cocktails-listing.service';
 import { Cocktail } from '../types/cocktail.types';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cocktails-listing',
   standalone: true,
-  imports: [FormsModule, CommonModule, MatIconModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './cocktails-listing.component.html',
   styleUrl: './cocktails-listing.component.scss'
 })
